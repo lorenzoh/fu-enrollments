@@ -39,13 +39,20 @@ def scrape_pdfs_semester(semester_url):
     soup = get_soup(semester_url)
     semester = " ".join(soup.select_one("h1:nth-child(1)").text.split()
                         [-2:])  # Parse semester from title
+    season = semester[:6].lower()
+    year = semester.split()[-1][:4]
     pdf_links = soup.select(".editor-content.hyphens a")
 
     pdfs = []
     for link in pdf_links:
-        pdf = {"semester": semester}
+        pdf = {
+            "semester_name": semester,
+            "season": season,
+            "year": year,
+        }
         pdf["url"] = URL + link.attrs["href"]
         pdf["kind"] = KIND_MAPPING[link.text]
+        pdf["name"] = f"{pdf['year']}-{pdf['season']}-{pdf['kind']}"
         pdf["filename"] = link.attrs["href"].split(sep="/")[-1]
         pdfs.append(pdf)
 

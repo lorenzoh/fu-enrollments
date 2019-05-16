@@ -14,7 +14,10 @@ def main():
         PDFS_PATH.mkdir()
 
     for (i, row) in tqdm(df.iterrows(), total=len(df)):
-        path = PDFS_PATH / row.filename
+        folder = PDFS_PATH / row.kind
+        if not folder.is_dir():
+            folder.mkdir()
+        path = folder / f"{row['name']}.pdf"
         if not path.is_file():
             download(row.url, path)
 

@@ -4,3 +4,5 @@
 .vscode
 data/*
 *.pyc
+*.jar
+notebooks
