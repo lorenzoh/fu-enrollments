@@ -1,0 +1,5 @@
+.ipynb_checkpoints
+*.ipynb
+.mypy_cache
+.vscode
+data/*
