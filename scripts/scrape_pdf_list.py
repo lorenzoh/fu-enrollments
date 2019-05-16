@@ -5,6 +5,9 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from tqdm import tqdm
+
+from config import KIND_MAPPING
 
 URL = "https://www.fu-berlin.de"
 LIST_PATH = "/studium/studienorganisation/immatrikulation/weitere-angebote/statistik/index.html"
@@ -17,7 +20,7 @@ def main():
 
     pdfs = []
 
-    for semester_url in [URL + path for path in semester_paths]:
+    for semester_url in tqdm([URL + path for path in semester_paths]):
         pdfs.extend(scrape_pdfs_semester(semester_url))
 
     df = pd.DataFrame(pdfs)
@@ -42,7 +45,8 @@ def scrape_pdfs_semester(semester_url):
     for link in pdf_links:
         pdf = {"semester": semester}
         pdf["url"] = URL + link.attrs["href"]
-        pdf["kind"] = link.text
+        pdf["kind"] = KIND_MAPPING[link.text]
+        pdf["filename"] = link.attrs["href"].split(sep="/")[-1]
         pdfs.append(pdf)
 
     return pdfs
