@@ -15,13 +15,13 @@ from config import AREA, HEADER, LINKS_PATH, PDFS_PATH, CSVS_PATH
 def df_from_pdf(path: Path) -> pd.DataFrame:
     df = tabula.read_pdf(
         str(path),
-        pages="all",
+        pages=[1],  # "all",
         area=AREA,
         lattice=True,
         pandas_options={
             "names": HEADER, "index_col": False
         },
-        #options="-u"
+        # options="-u"
     )
 
     return df

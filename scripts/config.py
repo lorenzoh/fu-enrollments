@@ -16,8 +16,8 @@ KIND_MAPPING = {
     "Promotionen": "promotionen"
 }
 
-HEADER = [
-    "subject", "degree", "n_total", "n_women", "n_foreign", "sem_1",
+COLUMNS = [
+    "subject", "degree", "n_total", "n_women", "n_foreign", "sem_0", "sem_1",
     "sem_2", "sem_3", "sem_4", "sem_5", "sem_6", "sem_7", "sem_8", "sem_9",
     "sem_10", "sem_11", "sem_12", "sem_l12",
 ]
