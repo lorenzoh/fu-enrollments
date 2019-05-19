@@ -14,7 +14,7 @@ import pandas as pd
 from config import COLUMNS
 
 CSVS_FOLDER = Path("data/csvs/studis-fach-abschluss")
-OUT_FILE = Path("data/csvs/studis-fach-abschluss.csv")
+OUT_FILE = Path("data/csvs/studis.csv")
 
 
 def main(csvs_folder: Path = CSVS_FOLDER, out_file: Path = OUT_FILE):
