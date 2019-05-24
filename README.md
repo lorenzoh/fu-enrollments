@@ -21,3 +21,29 @@ TODO
 `python scripts/download_pdfs.py`
 
 ## 3. Extract data from `.pdf`s to `.csv` using Tabula
+
+# Data ideas
+
+match subject with Fachbereich
+
+[Studienangebot](https://www.fu-berlin.de/studium/studienangebot/grundstaendige/index.html)
+
+# Visualization ideas
+
+- gender by subject (bachelor/master)
+  - show only entries with over n people
+  - show development over time
+  - filters
+    - degree (bachelor/master)
+- geographic heatmap for how many people are from
+  - which Bundesland in Germany
+  - which country
+- visualization of study duration (bachelor/master)
+  - show mean study duration
+  - for every semester show
+    - % continue
+    - % dropout
+    - % graduate
+  - filters
+    - degree (bachelor/master)
+    - subject

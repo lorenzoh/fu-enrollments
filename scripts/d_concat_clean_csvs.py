@@ -21,7 +21,12 @@ def main(csvs_folder: Path = CSVS_FOLDER, out_file: Path = OUT_FILE):
     # Load into DataFrames
     csv_files: List[Path] = list(csvs_folder.glob("*.csv"))
     dfs: List[pd.DataFrame] = [pd.read_csv(
-        csv_file, names=[str(x) for x in range(50)]) for csv_file in csv_files]
+        csv_file,
+        names=[str(x) for x in range(50)],
+        thousands=".",
+        decimal=",",
+    ) for csv_file in csv_files
+    ]
 
     # Clean
     for (df, file) in zip(dfs, csv_files):
@@ -41,7 +46,6 @@ def main(csvs_folder: Path = CSVS_FOLDER, out_file: Path = OUT_FILE):
             # convert `n_*` columns to int
             if df[col].dtype == "float":
                 df[col] = df[col].astype("int64")
-
 
         # Remove line breaks ("\n") from `subject` column
         df["subject"] = df["subject"].str.replace("\n", " ")
