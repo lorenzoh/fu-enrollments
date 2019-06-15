@@ -34,7 +34,6 @@ from config import KIND_MAPPING
 DOMAIN = "https://www.fu-berlin.de"
 STATISTIC_PATH = ("/studium/studienorganisation/immatrikulation/"
                   "weitere-angebote/statistik/index.html")
-OUT_PATH = Path("data/links.csv")
 
 
 def main(args: argparse.Namespace):
@@ -51,7 +50,7 @@ def main(args: argparse.Namespace):
 
     check_integrity(df)
 
-    df.to_csv(OUT_PATH, index=None)
+    df.to_csv(args.outfile, index=None)
 
 
 def get_soup(url):
@@ -84,11 +83,13 @@ def scrape_pdfs_semester(soup: BeautifulSoup) -> List[Dict[str, str]]:
 
 
 def check_integrity(df: pd.DataFrame) -> None:
-    assert df.isna().sum() == 0
+    assert df.isna().sum().sum() == 0
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--outfile", "-o", type=Path, help="Path to .csv file where result will be stored",
+                        default=Path("data/pdf_links.csv"))
 
     args = parser.parse_args()
 

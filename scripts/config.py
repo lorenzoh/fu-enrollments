@@ -1,7 +1,7 @@
 from pathlib import Path
 
 DATA_PATH = Path("data")
-LINKS_PATH = DATA_PATH / "links.csv"
+LINKS_PATH = DATA_PATH / "pdf_links.csv"
 PDFS_PATH = DATA_PATH / "pdfs"
 CSVS_PATH = DATA_PATH / "csvs"
 
