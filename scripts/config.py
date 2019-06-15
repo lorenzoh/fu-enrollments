@@ -7,12 +7,12 @@ CSVS_PATH = DATA_PATH / "csvs"
 
 KIND_MAPPING = {
     "Gesamtstatistik": "gesamt",
-    "Studierende nach Staatsangehörigkeit": "studis-staat",
-    "Studierende nach Studienfach und Abschluss": "studis-fach-abschluss",
-    "Studierende nach Abschluss und Studienfach": "studis-abschluss-fach",
+    "Studierende nach Staatsangehörigkeit": "studis_staat",
+    "Studierende nach Studienfach und Abschluss": "studis_fach",
+    "Studierende nach Abschluss und Studienfach": "studis_abschluss",
     "Abiturort": "abiort",
     "Erläuterungsbogen": "erlaeuterung",
-    "Bestandene Abschlussprüfungen": "prüfungen",
+    "Bestandene Abschlussprüfungen": "pruefungen",
     "Promotionen": "promotionen"
 }
 
