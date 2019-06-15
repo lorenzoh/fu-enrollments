@@ -1,0 +1,4 @@
+['remote "localremote"']
+url = /home/lorenz/data/dvc
+[core]
+remote = localremote
