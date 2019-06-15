@@ -1,9 +1,7 @@
 """
-Scrapes the links to all PDF files from the FU website
+Scrapes the links to all PDF files from the FU statistics website
 
-Output: `data/pdf_links.csv`
-
-Fields:
+.csv Fields:
 -------
 filename: str
     Name of the file on FU server
@@ -75,7 +73,7 @@ def scrape_pdfs_semester(soup: BeautifulSoup) -> List[Dict[str, str]]:
         }
         pdf["url"] = DOMAIN + link.attrs["href"]
         pdf["kind"] = KIND_MAPPING[link.text]
-        pdf["name"] = f"{pdf['year']}-{pdf['season']}-{pdf['kind']}"
+        pdf["name"] = f"{pdf['kind']}-{pdf['year']}-{pdf['season']}"
         pdf["filename"] = link.attrs["href"].split(sep="/")[-1]
         pdfs.append(pdf)
 
@@ -88,7 +86,8 @@ def check_integrity(df: pd.DataFrame) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--outfile", "-o", type=Path, help="Path to .csv file where result will be stored",
+    parser.add_argument("--outfile", "-o",
+                        type=Path, help="Path to .csv file where result will be stored",
                         default=Path("data/pdf_links.csv"))
 
     args = parser.parse_args()

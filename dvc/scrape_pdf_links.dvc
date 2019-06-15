@@ -1,11 +1,11 @@
-md5: aea35f39db0912ac01db7ee723accdcd
+md5: b780527c573f67b2b478e7f5ec980608
 cmd: python scripts/scrape_pdf_links.py
 wdir: ..
 deps:
-- md5: 82b81b152031cf5c3cac7356b30a632b
+- md5: aaefb60ca44c0c50a0c0e266e0cd494e
   path: scripts/scrape_pdf_links.py
 outs:
-- md5: d60465b070ee207eb5eb0f529fe67993
+- md5: aa5a622ee2f70bb76cefbfae8aeba33e
   path: data/pdf_links.csv
   cache: true
   metric: false
