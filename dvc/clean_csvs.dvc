@@ -1,8 +1,8 @@
-md5: da7ccbae3887955e11933e09c0e9a999
+md5: 99e5d6240936316aba8c71e10d8a6643
 cmd: python scripts/clean_csvs.py
 wdir: ..
 deps:
-- md5: 90ebee5b2012019b3dfeea304a6ead0a
+- md5: 689dfd14847c7c77e483a96ad84afbec
   path: scripts/clean_csvs.py
 - md5: 95feb3c383a2967ae85e85acb4365d11.dir
   path: data/csvs/raw

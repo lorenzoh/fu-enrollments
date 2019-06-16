@@ -11,12 +11,12 @@ After removing these, the following changes are made:
 - decimal thousands punctuation from "." to ","
 
 """
-import csv
 import argparse
+import csv
 from pathlib import Path
+from typing import List
 
 import pandas as pd
-import numpy as np
 from tqdm import tqdm
 
 OLD_HEADER = [
@@ -31,7 +31,7 @@ NEW_HEADER = [
 ]
 
 
-def get_header(filename: str):
+def get_header(filename: str) -> List[str]:
     """
     Return the correct header for a statistic
     Statistics until incl. summer 2009 have 3 fewer fields

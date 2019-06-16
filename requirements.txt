@@ -1,0 +1,4 @@
+pandas
+tabula-py
+tqdm
+bs4

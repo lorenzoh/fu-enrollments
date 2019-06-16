@@ -20,18 +20,27 @@ Checks:
 """
 import argparse
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, List
 
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 
-from config import KIND_MAPPING
-
 DOMAIN = "https://www.fu-berlin.de"
 STATISTIC_PATH = ("/studium/studienorganisation/immatrikulation/"
                   "weitere-angebote/statistik/index.html")
+
+KIND_MAPPING = {
+    "Gesamtstatistik": "gesamt",
+    "Studierende nach Staatsangehörigkeit": "studis_staat",
+    "Studierende nach Studienfach und Abschluss": "studis_fach",
+    "Studierende nach Abschluss und Studienfach": "studis_abschluss",
+    "Abiturort": "abiort",
+    "Erläuterungsbogen": "erlaeuterung",
+    "Bestandene Abschlussprüfungen": "pruefungen",
+    "Promotionen": "promotionen"
+}
 
 
 def main(args: argparse.Namespace):

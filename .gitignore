@@ -4,3 +4,5 @@
 *.pyc
 *.jar
 data.1
+notebooks/*
+md/*
