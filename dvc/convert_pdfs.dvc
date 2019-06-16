@@ -1,0 +1,12 @@
+md5: c755b100053990aa96b7b982fa7e882b
+cmd: python scripts/convert_pdfs.py
+wdir: ..
+deps:
+- md5: 88b2e27a71506df28615398c34464d93
+  path: scripts/convert_pdfs.py
+outs:
+- md5: 95feb3c383a2967ae85e85acb4365d11.dir
+  path: data/csvs/raw
+  cache: true
+  metric: false
+  persist: false
