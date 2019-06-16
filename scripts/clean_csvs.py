@@ -65,7 +65,7 @@ def clean_csv_step1(csv_file: Path, out_file: Path) -> None:
         prepend = ""
         for row in reader:
             # check for empty first or last entry
-            if row[0] == "":
+            if row[0] == "" and prepend == "":
                 row = row[1:]
             if row[-1] == "":
                 row = row[:-1]
@@ -113,6 +113,7 @@ def clean_csv_step2(csv_file: Path):
         print("sem_g12" in df.columns)
         print(df[df["sem_g12"].isna()])
         #print(df.isna().sum())
+
     # parse numerical columns
     for col in df.columns:
         # parse `sem_*` columns

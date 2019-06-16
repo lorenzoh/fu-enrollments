@@ -1,9 +1,11 @@
-md5: 9c95f776b0e0a221e678179c58930208
+md5: 7268bab3eb7b96e366016e340e14373f
 cmd: python scripts/download_pdfs.py
 wdir: ..
 deps:
 - md5: 212e0bcb66291c68b005974370a51c06
   path: scripts/download_pdfs.py
+- md5: aa5a622ee2f70bb76cefbfae8aeba33e
+  path: data/pdf_links.csv
 outs:
 - md5: 72d60fabc745aa70a1a62e57c459d506.dir
   path: data/pdfs

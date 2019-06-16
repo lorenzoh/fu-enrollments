@@ -1,9 +1,11 @@
-md5: c755b100053990aa96b7b982fa7e882b
+md5: b89dd21f509069cb3792ecd603232734
 cmd: python scripts/convert_pdfs.py
 wdir: ..
 deps:
 - md5: 88b2e27a71506df28615398c34464d93
   path: scripts/convert_pdfs.py
+- md5: 72d60fabc745aa70a1a62e57c459d506.dir
+  path: data/pdfs
 outs:
 - md5: 95feb3c383a2967ae85e85acb4365d11.dir
   path: data/csvs/raw

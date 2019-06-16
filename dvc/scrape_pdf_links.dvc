@@ -1,8 +1,8 @@
-md5: b780527c573f67b2b478e7f5ec980608
+md5: cc364b5cbb13026fd11c288793750f2a
 cmd: python scripts/scrape_pdf_links.py
 wdir: ..
 deps:
-- md5: aaefb60ca44c0c50a0c0e266e0cd494e
+- md5: e1250087a209779f745f8889102d925e
   path: scripts/scrape_pdf_links.py
 outs:
 - md5: aa5a622ee2f70bb76cefbfae8aeba33e
