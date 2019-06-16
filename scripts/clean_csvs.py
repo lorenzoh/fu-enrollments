@@ -18,6 +18,7 @@ import argparse
 from pathlib import Path
 
 import pandas as pd
+import numpy as np
 from tqdm import tqdm
 
 OLD_HEADER = [
@@ -106,13 +107,9 @@ def clean_csv_step2(csv_file: Path):
     # set header
     df.columns = get_header(csv_file.name)
 
+    # some entries for n_foreign are left blank
     if "n_foreign" in df.columns:
         df["n_foreign"].fillna(0, inplace=True)
-    if df.isna().sum().sum() > 0:
-        print(csv_file.name)
-        print("sem_g12" in df.columns)
-        print(df[df["sem_g12"].isna()])
-        #print(df.isna().sum())
 
     # parse numerical columns
     for col in df.columns:
@@ -123,12 +120,13 @@ def clean_csv_step2(csv_file: Path):
         if df[col].dtype == "float":
             df[col] = df[col].astype("int64")
 
-    df.to_csv(csv_file, index=None)
+    #check_df(csv_file.name, df)
+
+    df.to_csv(csv_file, index=None, quoting=csv.QUOTE_NONNUMERIC)
 
 
-def check_df(df: pd.DataFrame):
-    pass
-
+def check_df(name: str, df: pd.DataFrame):
+    assert df.isna().sum().sum() == 0
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
