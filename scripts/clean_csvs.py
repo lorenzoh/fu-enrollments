@@ -6,6 +6,7 @@ After conversion from pdf to csv, there are still some parsing errors to be reso
 2. entries with long subject names span over multiple rows
 3. empty columns
 4. empty first column
+5. a few missing values in "n_foreign" column
 
 After removing these, the following changes are made
 - replace "-" with 0 for student counts
@@ -27,7 +28,7 @@ OLD_HEADER = [
 NEW_HEADER = [
     "subject", "degree", "n_total", "n_women", "n_foreign", "sem_0", "sem_1",
     "sem_2", "sem_3", "sem_4", "sem_5", "sem_6", "sem_7", "sem_8", "sem_9",
-    "sem_10", "sem_11", "sem_12", "sem_l12",
+    "sem_10", "sem_11", "sem_12", "sem_g12",
 ]
 
 
@@ -105,19 +106,21 @@ def clean_csv_step2(csv_file: Path):
     # set header
     df.columns = get_header(csv_file.name)
 
+    if "n_foreign" in df.columns:
+        df["n_foreign"].fillna(0, inplace=True)
     if df.isna().sum().sum() > 0:
         print(csv_file.name)
+        print("sem_g12" in df.columns)
+        print(df[df["sem_g12"].isna()])
         #print(df.isna().sum())
-        print(df.subject[df.n_foreign.isna()])
-
     # parse numerical columns
-    #for col in df.columns:
-    #    # parse `sem_*` columns
-    #    if col.startswith("sem"):
-    #        df[col] = df[col].apply(lambda x: 0 if x == "-" else int(x))
-    #    # convert `n_*` columns to int
-    #    if df[col].dtype == "float":
-    #        df[col] = df[col].astype("int64")
+    for col in df.columns:
+        # parse `sem_*` columns
+        if col.startswith("sem"):
+            df[col] = df[col].apply(lambda x: 0 if x == "-" else int(x))
+        # convert `n_*` columns to int
+        if df[col].dtype == "float":
+            df[col] = df[col].astype("int64")
 
     df.to_csv(csv_file, index=None)
 
