@@ -1,0 +1,14 @@
+md5: 0d357b24b9e2983936d82d807d9f7391
+cmd: python scripts/merge_csvs.py
+wdir: ..
+deps:
+- md5: dbbc2108927101eae2503eca70c02851
+  path: scripts/merge_csvs.py
+- md5: a979abe708da35264011e4ef4ef4e233.dir
+  path: data/csvs/cleaned
+outs:
+- md5: f8e8e14d6511c599912b2399cc28c5bf.dir
+  path: data/csvs/final
+  cache: true
+  metric: false
+  persist: false

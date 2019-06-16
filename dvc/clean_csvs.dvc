@@ -1,13 +1,13 @@
-md5: 005001f16ae38dafce759353feadbae3
+md5: da7ccbae3887955e11933e09c0e9a999
 cmd: python scripts/clean_csvs.py
 wdir: ..
 deps:
-- md5: abc94ac8f2781efbbf3a140784ea7dc2
+- md5: 90ebee5b2012019b3dfeea304a6ead0a
   path: scripts/clean_csvs.py
 - md5: 95feb3c383a2967ae85e85acb4365d11.dir
   path: data/csvs/raw
 outs:
-- md5: e35bb1f97a275e1adf773cd7ba2c2b70.dir
+- md5: a979abe708da35264011e4ef4ef4e233.dir
   path: data/csvs/cleaned
   cache: true
   metric: false

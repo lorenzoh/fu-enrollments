@@ -1,14 +1,12 @@
 """
-
 After conversion from pdf to csv, there are still some parsing errors to be resolved:
-
 1. empty rows
 2. entries with long subject names span over multiple rows
 3. empty columns
 4. empty first column
 5. a few missing values in "n_foreign" column
 
-After removing these, the following changes are made
+After removing these, the following changes are made:
 - replace "-" with 0 for student counts
 - decimal thousands punctuation from "." to ","
 
@@ -24,7 +22,7 @@ from tqdm import tqdm
 OLD_HEADER = [
     "subject", "degree", "n_total", "sem_1",
     "sem_2", "sem_3", "sem_4", "sem_5", "sem_6", "sem_7", "sem_8", "sem_9",
-    "sem_10", "sem_11", "sem_12", "sem_l12",
+    "sem_10", "sem_11", "sem_12", "sem_g12",
 ]
 NEW_HEADER = [
     "subject", "degree", "n_total", "n_women", "n_foreign", "sem_0", "sem_1",
